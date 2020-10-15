@@ -421,6 +421,26 @@ Vaadin-OSGi-Extender: true]]>
                     </scopes>
                 </configuration>
             </plugin>
+
+            <plugin>
+                <groupId>biz.aQute.bnd</groupId>
+                <artifactId>bnd-export-maven-plugin</artifactId>
+                <version>${bnd.version}</version>
+                <configuration>
+                    <failOnChanges>false</failOnChanges>
+                    <bndruns>
+                        <bndrun>launch.bndrun</bndrun>
+                    </bndruns>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>export</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
             <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <configuration>
