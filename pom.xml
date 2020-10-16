@@ -561,7 +561,7 @@
 
         </profile>
         <profile>
-            <id>bundled</id>
+            <id>bundle</id>
             <activation>
                 <file>
                     <exists>src/main/java</exists>
@@ -619,6 +619,20 @@ Vaadin-OSGi-Extender: true]]>
                                 </manifest>
                             </archive>
                         </configuration>
+                    </plugin>
+                 
+                    <plugin>
+                        <groupId>biz.aQute.bnd</groupId>
+                        <artifactId>bnd-reporter-maven-plugin</artifactId>
+                        <version>${bnd.version}</version>
+                        <executions>
+                            <execution>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>readme</goal>
+                                </goals>
+                            </execution>
+                        </executions>
                     </plugin>
                 </plugins>
             </build>
