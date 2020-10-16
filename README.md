@@ -26,6 +26,10 @@ Test in browser
 open Vaadin App [http://localhost:8080](http://localhost:8080).
 open Felix Webconsole [http://localhost:8080/system/console](http://localhost:8080/system/console).
 
+## Artefacts
+* [**Base Starter for Vaadin Flow and OSGi**](starter.flow.simple)
+* [**Base Starter for Vaadin Flow and OSGi**](starter.flow.better)
+* [**The Aplication that runs Vaadin Flow and in OSGi**](application)
 
 :warning:
 At the moment, Vaadin 14 supports OSGi only in production mode. 
