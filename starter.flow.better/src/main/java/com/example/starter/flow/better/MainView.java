@@ -1,4 +1,4 @@
-package com.example.starter.base;
+package com.example.starter.flow.better;
 
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.notification.Notification;

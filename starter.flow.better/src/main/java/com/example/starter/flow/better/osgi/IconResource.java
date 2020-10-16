@@ -1,4 +1,4 @@
-package com.example.starter.base.osgi;
+package com.example.starter.flow.better.osgi;
 
 import org.osgi.service.component.annotations.Component;
 
