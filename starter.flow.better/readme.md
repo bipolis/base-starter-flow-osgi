@@ -31,7 +31,7 @@ Version             : 1.0.0
 
 ## Components
 
-### com.example.starter.flow.better.osgi.IconResource - *state = enabled, activation = immediate*
+### com.example.starter.flow.better.osgi.FixedVaadinServlet - *state = enabled, activation = immediate*
 
 #### Description
 
@@ -39,11 +39,105 @@ Version             : 1.0.0
 
 |Interface name |
 |--- |
-|com.vaadin.flow.osgi.support.OsgiVaadinStaticResource |
+|javax.servlet.Servlet |
 
 #### Properties
 
-No properties.
+|Name |Type |Value |
+|--- |--- |--- |
+|servlet.init.compatibilityMode |Boolean |false |
+|servlet.init.productionMode |Boolean |true |
+|osgi.http.whiteboard.servlet.asyncSupported |Boolean |true |
+|osgi.http.whiteboard.servlet.pattern |String[] |["/*"] |
+|osgi.http.whiteboard.resource.pattern |String[] |["/VAADIN/config/stats.json"] |
+|osgi.http.whiteboard.resource.prefix |String |"/META-INF/VAADIN/config/stats.json" |
+
+#### Configuration - *policy = optional*
+
+##### Pid: `com.example.starter.flow.better.osgi.FixedVaadinServlet`
+
+No information available.
+
+#### Reference bindings
+
+No bindings.
+
+#### OSGi-Configurator
+
+
+```
+/*
+ * Component: com.example.starter.flow.better.osgi.FixedVaadinServlet
+ * policy:    optional
+ */
+"com.example.starter.flow.better.osgi.FixedVaadinServlet":{
+        //# Component properties
+        /*
+         * Type = Boolean
+         * Default = false
+         */
+         // "servlet.init.compatibilityMode": null,
+
+        /*
+         * Type = Boolean
+         * Default = true
+         */
+         // "servlet.init.productionMode": null,
+
+        /*
+         * Type = Boolean
+         * Default = true
+         */
+         // "osgi.http.whiteboard.servlet.asyncSupported": null,
+
+        /*
+         * Type = String[]
+         * Default = ["/*"]
+         */
+         // "osgi.http.whiteboard.servlet.pattern": null,
+
+        /*
+         * Type = String[]
+         * Default = ["/VAADIN/config/stats.json"]
+         */
+         // "osgi.http.whiteboard.resource.pattern": null,
+
+        /*
+         * Type = String
+         * Default = "/META-INF/VAADIN/config/stats.json"
+         */
+         // "osgi.http.whiteboard.resource.prefix": null,
+
+
+        //# Reference bindings
+        // none
+
+        //# ObjectClassDefinition - Attributes
+        // (No PidOcd available.)
+}
+```
+
+---
+
+### com.example.starter.flow.better.osgi.IconResource - *state = enabled, activation = immediate*
+
+#### Description
+
+Registers icon using the OSGi-Http-Whiteboard - @HttpWhiteboardResource
+
+#### Services - *scope = singleton*
+
+|Interface name |
+|--- |
+|com.example.starter.flow.better.osgi.IconResource |
+
+#### Properties
+
+|Name |Type |Value |
+|--- |--- |--- |
+|service.description |String |"Registers icon using the OSGi-Http-Whiteboard - @HttpWhiteboardResource" |
+|osgi.http.whiteboard.resource.pattern |String[] |["/icons/icon.png"] |
+|osgi.http.whiteboard.resource.prefix |String |"/META-INF/resources/icons/icon.png" |
 
 #### Configuration - *policy = optional*
 
@@ -65,63 +159,27 @@ No bindings.
  */
 "com.example.starter.flow.better.osgi.IconResource":{
         //# Component properties
-        // none
+        /*
+         * Type = String
+         * Default = "Registers icon using the OSGi-Http-Whiteboard - @HttpWhiteboardResource"
+         */
+         // "service.description": null,
+
+        /*
+         * Type = String[]
+         * Default = ["/icons/icon.png"]
+         */
+         // "osgi.http.whiteboard.resource.pattern": null,
+
+        /*
+         * Type = String
+         * Default = "/META-INF/resources/icons/icon.png"
+         */
+         // "osgi.http.whiteboard.resource.prefix": null,
+
 
         //# Reference bindings
         // none
-
-        //# ObjectClassDefinition - Attributes
-        // (No PidOcd available.)
-}
-```
-
----
-
-### com.example.starter.flow.better.osgi.VaadinServletRegistration - *state = enabled, activation = immediate*
-
-#### Description
-
-#### Services
-
-No services.
-
-#### Properties
-
-No properties.
-
-#### Configuration - *policy = optional*
-
-##### Pid: `com.example.starter.flow.better.osgi.VaadinServletRegistration`
-
-No information available.
-
-#### Reference bindings
-
-|Attribute |Value |
-|--- |--- |
-|name |HttpService |
-|interfaceName |org.osgi.service.http.HttpService |
-|target | |
-|cardinality |1..1 |
-|policy |static |
-|policyOption |reluctant |
-|scope |bundle |
-
-#### OSGi-Configurator
-
-
-```
-/*
- * Component: com.example.starter.flow.better.osgi.VaadinServletRegistration
- * policy:    optional
- */
-"com.example.starter.flow.better.osgi.VaadinServletRegistration":{
-        //# Component properties
-        // none
-
-        //# Reference bindings
-        // "HttpService.target": "(component.pid=*)"
-
 
         //# ObjectClassDefinition - Attributes
         // (No PidOcd available.)

@@ -1,26 +1,18 @@
 package com.example.starter.flow.better.osgi;
 
 import org.osgi.service.component.annotations.Component;
-
-import com.vaadin.flow.osgi.support.OsgiVaadinStaticResource;
+import org.osgi.service.component.propertytypes.ServiceDescription;
+import org.osgi.service.http.whiteboard.propertytypes.HttpWhiteboardResource;
 
 /**
- * Registers icon as a web resource available via HTTP.
+ * Registers icon Important: Declare the service= in the @Component!
  *
- * @author Vaadin Ltd
+ * @author Stefan Bischof
  *
  */
-@Component(immediate = true, service = OsgiVaadinStaticResource.class)
-public class IconResource implements OsgiVaadinStaticResource {
-
-    @Override
-    public String getPath() {
-        return "/META-INF/resources/icons/icon.png";
-    }
-
-    @Override
-    public String getAlias() {
-        return "/icons/icon.png";
-    }
+@ServiceDescription("Registers icon using the OSGi-Http-Whiteboard - @HttpWhiteboardResource")
+@HttpWhiteboardResource(pattern = "/icons/icon.png", prefix = "/META-INF/resources/icons/icon.png")
+@Component(immediate = true, service = IconResource.class)
+public class IconResource {
 
 }
